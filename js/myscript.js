@@ -8,38 +8,46 @@ const btnCalcolaEl = document.getElementById("btnCalcola");
 btnCalcolaEl.addEventListener(
     "click",
     function () {
-        // Assegno nomi alle variabili per js.
-        userAgeEl = parseInt(document.getElementById("userAge").value);
-        userDistanceEl = parseInt(document.getElementById("userDistance").value);
-        console.log(userAgeEl, userDistanceEl);
+        // Assegno un valore alle mie variabili per età e chilometri.
+        let userAgeEl = document.getElementById("userAge").value;
+        let userDistanceEl = document.getElementById("userDistance").value;
+
+        // Rimuovo valori dal form.
+        document.getElementById("userAge").value = "";
+        document.getElementById("userDistance").value = "";
+
+        // Controllo che i dati inseriti siano numeri.
+        if (isNaN(userAgeEl) || isNaN(userDistanceEl)) {
+            alert("Inserire dei numeri.");
+        }
+        else {
+            // Calcolo il prezzo del biglietto.
+            let ticketPrice = userDistanceEl * 0.21;
+
+            // Calcolo lo sconto.
+
+            if (userAgeEl < 18) {
+                // Calcolo percentuale sconto.
+                let discount = ((ticketPrice / 100) * 20);
+                // Applico sconto.
+                ticketPrice = ticketPrice - discount;
+            }
+            else if (userAgeEl >= 65) {
+                // Calcolo percentuale sconto.
+                let discount = ((ticketPrice / 100) * 40);
+                // Applico sconto.
+                ticketPrice = ticketPrice - discount;
+            }
+
+            // Riporto i dati inseriti dall'utente.
+            document.getElementById("userAgeInt").innerHTML = "L'età inserita è " + userAgeEl + " anni.";
+            document.getElementById("userDistanceInt").innerHTML = "La distanza inserita sono " + userDistanceEl + " km."
+            // Scrivo il prezzo finale, in euro.
+            ticketPrice = (Math.round((ticketPrice * 100))) / 100;
+
+            document.getElementById("userTicket").innerHTML = "Il prezzo del tuo bigliettto è €" + ticketPrice + ".";
+        }
     }
-)
+);
 
 
-
-
-// // Chiedo all'utente quanti chilometri deve percorrere.
-// let distanza = parseInt(prompt("Quanti chilometri devi percorrere?"));
-
-// // Chiedo l'età dell'utente.
-// let userAge = parseInt(prompt("Quanti anni hai?"));
-
-// // Calcolo il prezzo del biglietto.
-// let ticketPrice = distanza * 0.21;
-
-// // Calcolo lo sconto.
-
-// if (userAge < 18) {
-//     let discount = ((ticketPrice / 100) * 20);
-//     ticketPrice = ticketPrice - discount;
-// }
-// else if (userAge > 65) {
-//     let discount = ((ticketPrice / 100) * 40);
-//     ticketPrice = ticketPrice - discount;
-// }
-
-// console.log(ticketPrice);
-// // Scrivo il prezzo finale, in euro.
-// ticketPrice = (Math.round((ticketPrice * 100))) / 100;
-
-// document.getElementById("final_price").innerHTML = "Il prezzo del tuo bigliettto è €" + ticketPrice + "."

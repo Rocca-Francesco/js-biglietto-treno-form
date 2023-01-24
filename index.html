@@ -12,19 +12,31 @@
 </head>
 
 <body>
-    <form action="">
-        <div>
-            <label for="userAge">Inserisci la tua età:</label>
-            <input type="text" id="userAge" placeholder="Età">
-        </div>
-        <div>
-            <label for="userDistance">Inserisci la distanza che devi percorrere:</label>
-            <input type="text" id="userDistance" placeholder="Km">
-        </div>
-        <div>
-            <button type="button" id="btnCalcola">Calcola biglietto</button>
-        </div>
-    </form>
+    <!-- form raccolta dati utente -->
+    <section>
+        <form action="">
+            <div>
+                <label for="userAge">Inserisci la tua età:</label>
+                <input type="text" id="userAge" placeholder="Età">
+                <span>anni.</span>
+            </div>
+            <div>
+                <label for="userDistance">Inserisci la distanza che devi percorrere:</label>
+                <input type="text" id="userDistance" placeholder="Distanza">
+                <span>Km.</span>
+            </div>
+            <div>
+                <button type="button" id="btnCalcola">Calcola biglietto</button>
+            </div>
+        </form>
+    </section>
+
+    <!-- zona risultati biglietto -->
+    <section>
+        <h2 id="userTicket"></h2>
+        <span id="userAgeInt"></span>
+        <span id="userDistanceInt"></span>
+    </section>
 </body>
 
 </html>
