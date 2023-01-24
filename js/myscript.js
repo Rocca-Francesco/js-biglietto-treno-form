@@ -1,7 +1,3 @@
-// Dichiaro le mie variabili per età e chilometri, per questioni di scope.
-let userAgeEl;
-let userDistanceEl;
-
 // Assegno un valore al mio bottone e controllo il uso evento.
 const btnCalcolaEl = document.getElementById("btnCalcola");
 
@@ -9,8 +5,8 @@ btnCalcolaEl.addEventListener(
     "click",
     function () {
         // Assegno un valore alle mie variabili per età e chilometri.
-        let userAgeEl = document.getElementById("userAge").value;
-        let userDistanceEl = document.getElementById("userDistance").value;
+        const userAgeEl = document.getElementById("userAge").value;
+        const userDistanceEl = document.getElementById("userDistance").value;
 
         // Rimuovo valori dal form.
         document.getElementById("userAge").value = "";
